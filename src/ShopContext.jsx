@@ -1,29 +1,37 @@
 import { createContext, useContext, useEffect, useMemo, useReducer, useState } from 'react';
 
-const ShopContext = createContext(null);
+const ShopContext = createContext(undefined);
 
 function cartReducer(state, action) {
   switch (action.type) {
     case 'ADD': {
-      const index = state.findIndex(item =>
-        item.id === action.item.id &&
-        item.size === action.item.size &&
-        item.color === action.item.color
+      const existing = state.find(
+        (item) =>
+          item.id === action.item.id &&
+          item.size === action.item.size &&
+          item.color === action.item.color
       );
-      if (index === -1) return [...state, { ...action.item, qty: 1 }];
-      return state.map((item, i) =>
-        i === index ? { ...item, qty: item.qty + 1 } : item
-      );
+      if (existing) {
+        return state.map((item) =>
+          item.id === action.item.id &&
+          item.size === action.item.size &&
+          item.color === action.item.color
+            ? { ...item, qty: item.qty + 1 }
+            : item
+        );
+      }
+      return [...state, { ...action.item, qty: 1 }];
     }
     case 'CHANGE':
-      return state.map(item =>
+      return state.map((item) =>
         item.id === action.id && item.size === action.size && item.color === action.color
           ? { ...item, qty: Math.max(1, item.qty + action.delta) }
           : item
       );
     case 'REMOVE':
-      return state.filter(item =>
-        !(item.id === action.id && item.size === action.size && item.color === action.color)
+      return state.filter(
+        (item) =>
+          !(item.id === action.id && item.size === action.size && item.color === action.color)
       );
     case 'CLEAR':
       return [];
@@ -38,15 +46,16 @@ export function ShopProvider({ children }) {
 
   useEffect(() => {
     if (!toast) return undefined;
-    const timer = window.setTimeout(() => setToast(''), 2000);
-    return () => window.clearTimeout(timer);
+    const timeoutId = window.setTimeout(() => setToast(''), 2200);
+    return () => window.clearTimeout(timeoutId);
   }, [toast]);
 
-  const add = (product, size, color) => {
+  function add(product, size, color) {
     if (!product || !size || !color) {
       setToast('Seleziona taglia e colore');
       return;
     }
+
     dispatch({
       type: 'ADD',
       item: {
@@ -59,13 +68,19 @@ export function ShopProvider({ children }) {
       }
     });
     setToast(`${product.name} aggiunto al carrello`);
-  };
+  }
 
-  const change = (id, size, color, delta) =>
+  function change(id, size, color, delta) {
     dispatch({ type: 'CHANGE', id, size, color, delta });
-  const remove = (id, size, color) =>
+  }
+
+  function remove(id, size, color) {
     dispatch({ type: 'REMOVE', id, size, color });
-  const clear = () => dispatch({ type: 'CLEAR' });
+  }
+
+  function clear() {
+    dispatch({ type: 'CLEAR' });
+  }
 
   const total = useMemo(
     () => cart.reduce((sum, item) => sum + item.price * item.qty, 0),
@@ -76,15 +91,15 @@ export function ShopProvider({ children }) {
     [cart]
   );
 
-  return (
-    <ShopContext.Provider value={{ cart, add, change, remove, clear, total, count, toast }}>
-      {children}
-    </ShopContext.Provider>
-  );
+  const value = { cart, add, change, remove, clear, total, count, toast };
+
+  return <ShopContext.Provider value={value}>{children}</ShopContext.Provider>;
 }
 
 export function useShop() {
   const context = useContext(ShopContext);
-  if (!context) throw new Error('useShop deve essere usato dentro ShopProvider');
+  if (context === undefined) {
+    throw new Error('useShop deve essere utilizzato all’interno di ShopProvider');
+  }
   return context;
 }

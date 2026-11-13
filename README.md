@@ -1,6 +1,6 @@
 # VYBE STUDIO — Streetwear E-commerce Demo
 
-Demo React + Vite + React Router. Nessun account, backend o pagamento.
+Progetto portfolio realizzato con React, Vite e React Router.
 
 ## Avvio locale
 ```bash
@@ -8,18 +8,38 @@ npm install
 npm run dev
 ```
 
-## Funzionalità
-- Navigazione client-side con React Router: i link interni cambiano pagina senza refresh completo.
-- Carrello condiviso tra tutte le pagine tramite un unico ShopProvider montato alla radice dell'app.
-- Aggiunta rapida dal catalogo e aggiunta dalla scheda prodotto dopo aver scelto una taglia.
-- Modifica quantità, rimozione articoli, subtotale, spedizione e checkout simulato.
-- Il carrello è solo in memoria: si svuota se ricarichi la pagina, come richiesto per la demo.
+## Build di produzione
+```bash
+npm run build
+npm run preview
+```
 
-## Pubblicazione Vercel
-Framework preset: Vite
-Build command: `npm run build`
-Output directory: `dist`
-Install command: `npm install`
+## Funzionalità demo
+- Homepage e catalogo streetwear responsive.
+- Filtri per categoria, ricerca e ordinamento.
+- Schede prodotto con selezione di taglia e colore.
+- Carrello condiviso tra le pagine: aggiunta, quantità, rimozione e totale.
+- Checkout dimostrativo, senza pagamenti e senza salvataggio ordini.
+- Nessun account e nessun database.
+- Carrello in memoria: rimane disponibile durante la navigazione client-side e si svuota al refresh, come richiesto.
 
-`vercel.json` contiene il fallback SPA per permettere l'apertura diretta delle route.
-Dopo aver sostituito i file su GitHub, attendi che Vercel completi il nuovo deployment. Poi prova in una finestra anonima o con Ctrl+Shift+R per evitare di visualizzare vecchi file in cache.
+## Stack e versioni
+Le versioni principali sono fissate in `package.json` per evitare aggiornamenti automatici inattesi:
+- React 18.3.1
+- React DOM 18.3.1
+- React Router DOM 6.28.2
+- Vite 6.4.6
+
+## Pubblicazione su Vercel
+- Framework Preset: Vite
+- Install Command: `npm install`
+- Build Command: `npm run build`
+- Output Directory: `dist`
+
+`vercel.json` contiene il rewrite SPA per consentire l'apertura diretta delle pagine interne.
+`vite.config.js` abilita le Source Maps per la diagnosi.
+
+## Aggiornamento GitHub
+Sostituire i file del repository con il contenuto di questo archivio, quindi eseguire il commit sulla branch `main`. Vercel avvierà il deployment collegato.
+
+Nota: il progetto non richiede variabili d'ambiente.
