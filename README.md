@@ -1,45 +1,18 @@
-# VYBE STUDIO — Streetwear E-commerce Demo
+# VYBE STUDIO — Demo e-commerce
 
-Progetto portfolio realizzato con React, Vite e React Router.
+Demo statica multi-pagina realizzata in HTML, CSS e JavaScript vanilla.
 
-## Avvio locale
-```bash
-npm install
-npm run dev
-```
+## Avvio
+Apri `index.html` nel browser oppure pubblica la cartella su GitHub e collega il repository a Vercel.
 
-## Build di produzione
-```bash
-npm run build
-npm run preview
-```
+## Funzioni
+- Home e catalogo con 8 prodotti demo
+- Filtri per categoria e ricerca
+- Scheda prodotto con scelta taglia
+- Carrello funzionante: aggiunta, rimozione e quantità
+- Checkout dimostrativo con conferma ordine
+- Carrello conservato in `sessionStorage`: resta disponibile durante la navigazione nella stessa scheda, ma non è un archivio permanente
+- Layout responsive
 
-## Funzionalità demo
-- Homepage e catalogo streetwear responsive.
-- Filtri per categoria, ricerca e ordinamento.
-- Schede prodotto con selezione di taglia e colore.
-- Carrello condiviso tra le pagine: aggiunta, quantità, rimozione e totale.
-- Checkout dimostrativo, senza pagamenti e senza salvataggio ordini.
-- Nessun account e nessun database.
-- Carrello in memoria: rimane disponibile durante la navigazione client-side e si svuota al refresh, come richiesto.
-
-## Stack e versioni
-Le versioni principali sono fissate in `package.json` per evitare aggiornamenti automatici inattesi:
-- React 18.3.1
-- React DOM 18.3.1
-- React Router DOM 6.28.2
-- Vite 6.4.6
-
-## Pubblicazione su Vercel
-- Framework Preset: Vite
-- Install Command: `npm install`
-- Build Command: `npm run build`
-- Output Directory: `dist`
-
-`vercel.json` contiene il rewrite SPA per consentire l'apertura diretta delle pagine interne.
-`vite.config.js` abilita le Source Maps per la diagnosi.
-
-## Aggiornamento GitHub
-Sostituire i file del repository con il contenuto di questo archivio, quindi eseguire il commit sulla branch `main`. Vercel avvierà il deployment collegato.
-
-Nota: il progetto non richiede variabili d'ambiente.
+## Nota
+È una demo front-end: non usa database, login, pagamenti o gestione ordini reali. Le immagini prodotto sono caricate da Unsplash tramite URL.
