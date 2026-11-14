@@ -20,3 +20,11 @@ Apri `index.html` nel browser oppure pubblica la cartella su GitHub e collega il
 
 ## Aggiornamento mobile e animazioni
 Menu mobile a comparsa, griglie e schede prodotto ottimizzate per smartphone, animazioni di ingresso allo scroll, hover e micro-interazioni. Rispetta le preferenze di accessibilità per la riduzione delle animazioni.
+
+
+## VYBE STUDIO 2.0
+- Homepage con hero editoriale più ampio e sezione lookbook.
+- Quick Add con scelta taglia dalle schede prodotto.
+- Mini-carrello laterale animato, con subtotale e accesso al carrello completo.
+- Galleria prodotto con miniature selezionabili e sezione prodotti correlati.
+- Sempre demo front-end: nessun pagamento, ordine o dato viene inviato a un server.
