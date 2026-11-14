@@ -16,3 +16,7 @@ Apri `index.html` nel browser oppure pubblica la cartella su GitHub e collega il
 
 ## Nota
 È una demo front-end: non usa database, login, pagamenti o gestione ordini reali. Le immagini prodotto sono caricate da Unsplash tramite URL.
+
+
+## Aggiornamento mobile e animazioni
+Menu mobile a comparsa, griglie e schede prodotto ottimizzate per smartphone, animazioni di ingresso allo scroll, hover e micro-interazioni. Rispetta le preferenze di accessibilità per la riduzione delle animazioni.
