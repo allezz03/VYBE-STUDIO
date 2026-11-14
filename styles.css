@@ -103,3 +103,15 @@ input:focus,select:focus{outline:1px solid var(--lime);border-color:var(--lime)}
  *,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
  .reveal{opacity:1;transform:none}
 }
+
+/* Consistent vector icons: avoid platform emoji/font substitution */
+.ui-icon{display:inline-block;width:1.15em;height:1.15em;vertical-align:-.22em;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.arrow-icon{margin-left:.25em;transition:transform .2s ease}
+.btn:hover .arrow-icon{transform:translate(2px,-2px)}
+.spark-icon{width:1em;height:1em;vertical-align:-.15em;stroke-width:2}
+.menu-toggle{display:none;align-items:center;justify-content:center}
+.menu-lines{width:18px;height:14px;display:flex;flex-direction:column;justify-content:space-between}
+.menu-lines i{display:block;width:18px;height:1.5px;background:currentColor;border-radius:2px;transition:transform .22s ease,opacity .18s ease}
+.menu-toggle.is-open .menu-lines i:first-child{transform:translateY(6.25px) rotate(45deg)}
+.menu-toggle.is-open .menu-lines i:nth-child(2){opacity:0}
+.menu-toggle.is-open .menu-lines i:last-child{transform:translateY(-6.25px) rotate(-45deg)}
